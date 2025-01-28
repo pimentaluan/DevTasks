@@ -1,0 +1,30 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+    <div class="container">
+        <img src="{% static 'imagens/logo_tasks.png' %}" alt="Logo DevTasks" class="img-fluid" style="width: 50px;">
+        <a class="navbar-brand fw-bold" href="/">DevTasks</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{% url 'listar_tarefas' %}">
+                        <i class="bi bi-list-task"></i> Tarefas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{% url 'nova_tarefa' %}">
+                        <i class="bi bi-plus-circle"></i> Nova Tarefa
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{% url 'logout' %}">
+                        <i class="bi bi-box-arrow-right"></i> Sair
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
