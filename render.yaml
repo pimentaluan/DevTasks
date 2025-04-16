@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: meu-django
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn meu_projeto.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: setup.settings
+      - key: 'django-insecure-36yi$np21xuxi+wj(ugnp2)pnh)o&$8^+twtuh)tq=e0cixec3'
+        generateValue: true
+      - key: DEBUG
+        value: 'False'
