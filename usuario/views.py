@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.template import TemplateDoesNotExist
 
 def login_view(request):
     if request.method == 'POST': 
@@ -19,7 +20,12 @@ def login_view(request):
         except User.DoesNotExist:
             messages.error(request, 'Email não encontrado.')
 
-    return render(request, 'usuario/login.html')
+    try:
+        return render(request, 'usuario/login.html')
+    except TemplateDoesNotExist:
+        return render(request, 'erro_generico.html', {
+            'mensagem': 'Template de login não encontrado. Verifique o caminho: usuario/login.html'
+        })
 
 def registrar(request):
     if request.method == 'POST':

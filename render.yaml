@@ -2,8 +2,11 @@ services:
   - type: web
     name: meu-django
     env: python
-    buildCommand: ""
-    startCommand: gunicorn meu_projeto.wsgi:application
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+
+    startCommand: gunicorn setup.wsgi:application
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: setup.settings
